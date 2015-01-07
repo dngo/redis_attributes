@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
     define :display_name
     define :active_flag
     define :age
-    define :temperature
+    define :temp_value, expire: 1 
   end
 
 end

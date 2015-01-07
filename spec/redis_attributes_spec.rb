@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   define_redis_attributes do
     define :display_name
+    define :temp_value, expire: 1 
     define :active_flag
     define :age
     define :temperature
@@ -57,7 +58,15 @@ describe RedisAttributes do
       user.temperature = 99.9
       User.find(user.id).temperature.should == 99.9
     end
+  end
 
+  context "expire" do
+    it "expires keys properly" do
+      user.temp_value = "temp"
+      User.find(user.id).temp_value.should == "temp"
+      sleep(1)
+      User.find(user.id).temp_value.should be_nil
+    end
   end
 
   context "delete" do

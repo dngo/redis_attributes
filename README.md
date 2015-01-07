@@ -18,7 +18,7 @@ And then execute:
 The `RedisAttributes` module depends on `Redis.current` (provided by the `redis` gem) being set.
 
 To add RedisAttributes to your models just include `RedisAttributes` in your ActiveRecord class and use the
-`redis_props` method to declare extra (optionally namespaced) properties for your objects.
+`define_redis_attributes` method to declare extra (optionally namespaced) properties for your objects.
 
 ```ruby
 class User < ActiveRecord::Base
@@ -32,3 +32,5 @@ class User < ActiveRecord::Base
   end
 
 end
+
+user.display_name = "davngo"

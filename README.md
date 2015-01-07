@@ -7,7 +7,7 @@ A simple way to annotate ActiveRecord objects with properties that are stored in
 
 Add this line to your application's Gemfile:
 
-    gem 'redis_properties'
+    gem 'redis_attributes'
 
 And then execute:
 

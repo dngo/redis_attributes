@@ -5,7 +5,7 @@ require 'active_record'
 class User < ActiveRecord::Base
   include RedisAttributes
 
-  establish_connection :adapter => 'sqlite3', :database => 'spec/foobar.db'
+  establish_connection :adapter => 'sqlite3', :database => ':memory:'
   connection.create_table :users, :force => true do |t|
     t.string :name
     t.string :uuid
